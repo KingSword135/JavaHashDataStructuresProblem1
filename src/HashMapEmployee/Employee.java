@@ -1,7 +1,6 @@
 package HashMapEmployee;
 public class Employee extends Worker{
     private double salary;
-    private int performance;
     private int daysWorked;
     private int hoursWorked;
 
@@ -10,7 +9,7 @@ public class Employee extends Worker{
         this.salary = Math.random() * 94 + 7.25;
         this.daysWorked = (int)(Math.random() * 6) + 1;
         this.hoursWorked = (int)(Math.random() * 9) + 1;
-        this.performance = super.returnPerformance();
+        super.returnPerformance();
     }
 
     public void changeSalary(double newSalary, Employee s) {
@@ -47,32 +46,27 @@ public class Employee extends Worker{
     }
 
     @Override
-    public int returnPerformance() {
-        return performance;
-    }
-
-    @Override
     public String getActualPerformance() {
         if (returnPerformance() < 40) {
-            return "Performance: Terrible";
+            return "Terrible";
         }
         else if (returnPerformance() >= 40 && returnPerformance() < 75) {
-            return "Performance: Poor";
+            return "Poor";
         }
         else if (returnPerformance() >= 75 && returnPerformance() < 110) {
-            return "Performance: Okay";
+            return "Okay";
         }
         else if (returnPerformance() >= 110 && returnPerformance() < 140) {
-            return "Performance: Good";
+            return "Good";
         }
         else if (returnPerformance() >= 140 && returnPerformance() < 175) {
-            return "Performance: Great";
+            return "Great";
         }
         else if (returnPerformance() >= 175 && returnPerformance() < 195) {
-            return "Performance: Excellent";
+            return "Excellent";
         }
         else {
-            return "Performance: Ready to be part of the RoboBusiness Legionnaire team";
+            return "Glory to RoboBusiness";
         }
     }
 
@@ -84,6 +78,7 @@ public class Employee extends Worker{
         String Performance = "Performance Value: " + returnPerformance() + " - " + getActualPerformance();
         return Title + "\n" + Name + "\n" + ID + "\n" + Salary + "\n" + Performance;
     }
+
 
 
 }

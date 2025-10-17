@@ -36,7 +36,7 @@ public class RoboBusiness {
         return false;
     }
 
-    //Remove
+    //Remove employee if they are doing badly
     public boolean fireEmployee(Employee s) {
         int key = s.returnID();
         if (Employees.containsKey(key)) {
@@ -59,7 +59,7 @@ public class RoboBusiness {
     }
 
     public int downSizing() {
-        int max= 20;
+        int max = 20;
         int actual= Employees.size();
         int excess=0;
         if(max < actual){

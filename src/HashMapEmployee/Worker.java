@@ -14,6 +14,10 @@ public abstract class Worker {
         this.performance = (int)(Math.random() * 201);
     }
 
+    Worker(String name, String name2) {
+        super();
+    }
+
     public String returnFirstName() {
         return firstname;
     }
@@ -32,7 +36,7 @@ public abstract class Worker {
         return ID;
     }
 
-    public void setPerformance(int newPerformance, Worker w) {
+    public void setPerformance(int newPerformance) {
         if (newPerformance > 200 || newPerformance < 0) {
             return;
         }
