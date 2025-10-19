@@ -12,6 +12,7 @@ public class NameFiller extends RoboBusiness{
 		add("Susan");
 		add("Lara");
 		add("Betty");
+		add("Alice");
 		add("Anige");
 		add("Jessie");
 		add("Riley");
@@ -28,6 +29,7 @@ public class NameFiller extends RoboBusiness{
 	    add("Goodman");
 	    add("Abbot");
 	    add("Cruz");
+		add("Clark");
 	    add("Johnson");
 	    add("Smith");
 	    add("Rivera");
@@ -38,7 +40,7 @@ public class NameFiller extends RoboBusiness{
 	public Employee createRandomWorker() { // creates a randomly generated ID and names to prevent tedious creation when testing can be expanded on to prevent duplicate names
 		int f = (int) (Math.random()*13);
 		int l = (int) (Math.random()*13);
-		int ID = (int) (Math.random()*100000000);
+		int ID = (int) (Math.random()*10000);
 		String firstName= first.get(f);
 		String lastName= last.get(l);
 		System.out.println("Your Employee is " + firstName + " " + lastName + " Their ID is:" + ID); //test code

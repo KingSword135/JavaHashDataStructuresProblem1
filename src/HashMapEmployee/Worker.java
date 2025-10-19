@@ -14,10 +14,6 @@ public abstract class Worker {
         this.performance = (int)(Math.random() * 201);
     }
 
-    Worker(String name, String name2) {
-        super();
-    }
-
     public String returnFirstName() {
         return firstname;
     }
