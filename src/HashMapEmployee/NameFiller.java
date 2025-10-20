@@ -43,14 +43,14 @@ public class NameFiller extends RoboBusiness{
 		int ID = (int) (Math.random()*10000);
 		String firstName= first.get(f);
 		String lastName= last.get(l);
-		System.out.println("Your Employee is " + firstName + " " + lastName + " Their ID is:" + ID); //test code
+		//System.out.println("Your Employee is " + firstName + " " + lastName + " Their ID is:" + ID); //test code
 		Employee e= new Employee(firstName, lastName, ID);
-		System.out.println(e.toString());
+		//System.out.println(e.toString());
 		return e;
 	}
 	
-	    public static void main(String[] args) {
-	       NameFiller nf= new NameFiller();
-	       nf.createRandomWorker();
-	    }
+	  //  public static void main(String[] args) {  //test code
+	   //    NameFiller nf= new NameFiller();
+	   //    nf.createRandomWorker();
+	  //  }
 }

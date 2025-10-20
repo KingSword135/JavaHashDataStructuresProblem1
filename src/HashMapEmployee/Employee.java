@@ -78,7 +78,4 @@ public class Employee extends Worker{
         String Performance = "Performance Value: " + returnPerformance() + " - " + getActualPerformance();
         return Title + "\n" + Name + "\n" + ID + "\n" + Salary + "\n" + Performance;
     }
-
-
-
 }

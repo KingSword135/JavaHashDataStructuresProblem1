@@ -104,6 +104,29 @@ public class RoboBusiness {
         return false;
     }
 
+     public void fireEmployee2(Employee s) { //functionailty of fireemp1 built into other methods called in run biz
+        int key = s.returnID();
+        if (Employees.containsKey(key)) {
+                Employees.remove(key,s);
+            }
+        }
+
+    public void hireCandidate2(Employee s) {
+        int key = s.returnID();
+        if(Employees.containsKey(key)){
+            int newkey= (int) Math.random() * 10000;
+            while(Employees.containsKey(newkey)){
+                 newkey= (int) Math.random() * 10000;
+            }
+            Employees.put(key, s);
+        }
+        else{
+            Employees.put(key, s); 
+        }
+        Candidates.remove(key, s);
+    }
+        
+
     public boolean positionNeeded() {
         int pos = 10;
         int actual= Employees.size();
@@ -135,6 +158,51 @@ public class RoboBusiness {
 
     }
 
+    public void initDatabase(int x){
+        NameFiller nf= new NameFiller();
+        for (int i=0; i < x; i++){
+            Employee e= nf.createRandomWorker();//fills our starting database with emps
+            int key = e.returnID();
+            Employees.put(key, e);
+
+        }
+        for (int j=0; j < x/2; j++){//initalize candidates to be half the size of emps
+            Employee e= nf.createRandomWorker();
+            int key = e.returnID();
+            Candidates.put(key, e);
+        }
+
+    }
+
+    public Employee worstEmployee(){//used for fire employee
+        Double maxworst=100000.0;
+        Employee dummy= new Employee("dummy", "dummy",0000);
+
+        for (Employee e: Employees.values() ){
+            if(e.returnPerformance() - e.returnSalary() < maxworst){
+                maxworst= e.returnPerformance() - e.returnSalary();
+                dummy= e;
+            }
+        }
+            return dummy;
+            
+    }
+
+    public Employee bestCandidate(){
+        Double best=-1000000.0;
+        Employee dummy= null;
+
+        for (Employee e: Candidates.values() ){
+            if(e.returnPerformance() - e.returnSalary() > best){
+                best= e.returnPerformance() - e.returnSalary();
+                dummy= e;
+            }
+        }
+            return dummy;
+            
+    }
+
+
     public String toString() {
         for (Employee s : Candidates.values()) {
 
@@ -146,4 +214,5 @@ public class RoboBusiness {
     }
 
 }
+
 
