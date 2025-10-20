@@ -10,7 +10,7 @@ public class FirstProblem {
         // v.put(e,1);
         // v.remove(e,1);
         System.out.println(e.toString());
-        e.setPerformance(200);
+        // e.setPerformance(200);
         System.out.println(e.getActualPerformance());
         e.changeSalary(6.53,e);
         System.out.println(e.toString());

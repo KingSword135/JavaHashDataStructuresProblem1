@@ -132,6 +132,11 @@ public class RoboBusiness {
     }
 
     public void printRoboBusiness() {
+        System.out.println("RRR ");
+        System.out.println("R R  ");
+        System.out.println("RRR  ");
+        System.out.println("R00R0");
+        System.out.println("R000R");
 
     }
 
@@ -140,7 +145,7 @@ public class RoboBusiness {
 
         }
         for (Employee s : Employees.values()) {
-
+            System.out.println(s.toString());
         }
         return "";
     }
