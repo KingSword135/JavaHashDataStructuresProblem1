@@ -116,9 +116,9 @@ public class RoboBusiness {
         if(Employees.containsKey(key)){
             int newkey= (int) Math.random() * 10000;
             while(Employees.containsKey(newkey)){
-                 newkey= (int) Math.random() * 10000;
+                 newkey= (int)(Math.random() * 10000);
             }
-            Employees.put(key, s);
+            Employees.put(newkey, s);
         }
         else{
             Employees.put(key, s); 
