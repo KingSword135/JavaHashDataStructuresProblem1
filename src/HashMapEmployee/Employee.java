@@ -45,6 +45,10 @@ public class Employee extends Worker{
         return hoursWorked;
     }
 
+    public int IDDifference(Employee s) {
+        return this.returnID() - s.returnID();
+    }
+
     @Override
     public String getActualPerformance() {
         if (returnPerformance() < 40) {
