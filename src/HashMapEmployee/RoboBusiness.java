@@ -23,7 +23,7 @@ public class RoboBusiness {
 
     public boolean addCandidatesList(Employee s) {
         // We want the 
-        if (Candidates.size() <= 10) {
+        if (Candidates.size() <= Employees.size() / 2) {
             int key = s.returnID();
             if (!Candidates.containsKey(key)) {
                 Candidates.put(key, s);
@@ -114,7 +114,7 @@ public class RoboBusiness {
     public void hireCandidate2(Employee s) {
         int key = s.returnID();
         if(Employees.containsKey(key)){
-            int newkey= (int) Math.random() * 10000;
+            int newkey= (int) (Math.random() * 10000);
             while(Employees.containsKey(newkey)){
                  newkey= (int)(Math.random() * 10000);
             }
@@ -124,26 +124,6 @@ public class RoboBusiness {
             Employees.put(key, s); 
         }
         Candidates.remove(key, s);
-    }
-        
-
-    public boolean positionNeeded() {
-        int pos = 10;
-        int actual= Employees.size();
-        if(pos > actual){
-            return true;
-        }
-        return false;
-    }
-
-    public int downSizing() {
-        int max = 20;
-        int actual= Employees.size();
-        int excess=0;
-        if(max < actual){
-            excess= actual-max;
-        }
-        return excess;
     }
 
     public int getNumEmployees() {
@@ -209,11 +189,15 @@ public class RoboBusiness {
 
 
     public String toString() {
+        System.out.println("Candidates: ");
         for (Employee s : Candidates.values()) {
-
+            System.out.println(s.toString());
+            System.out.println("=====================");
         }
+
         for (Employee s : Employees.values()) {
             System.out.println(s.toString());
+            System.out.println("=====================");
         }
         return "";
     }
