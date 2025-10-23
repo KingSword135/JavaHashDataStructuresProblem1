@@ -45,6 +45,11 @@ public class NameFiller extends RoboBusiness{
 		String lastName= last.get(l);
 		//System.out.println("Your Employee is " + firstName + " " + lastName + " Their ID is:" + ID); //test code
 		Employee e= new Employee(firstName, lastName, ID);
+		int daysworked= e.returnDaysWorked();
+		int hours= e.returnHoursWorked();
+		int realPerform= ((hours*daysworked)*3) -10;
+		e.setPerformance(realPerform);
+		//above utilizes hours and days to generate performace int
 		//System.out.println(e.toString());
 		return e;
 	}

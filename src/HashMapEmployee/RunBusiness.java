@@ -27,5 +27,8 @@ public class RunBusiness extends RoboBusiness {
             //performance should be low for newhighers
             interveiws+=1;
         }
+        //new code for demo below finds and prints out best employee stats 
+        Employee ofTheMonth= bestEmployee();
+        System.out.println("The Employee of the Month Is:\n" + ofTheMonth.toString());
     }
 }

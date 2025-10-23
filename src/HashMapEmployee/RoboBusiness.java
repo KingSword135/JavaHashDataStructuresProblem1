@@ -187,6 +187,20 @@ public class RoboBusiness {
             
     }
 
+    public Employee bestEmployee(){//used once demo is complete to show off employee to string 
+        Double best=-1000000.0;
+        Employee dummy= null;
+
+        for (Employee e: Employees.values() ){
+            if(e.returnPerformance() - e.returnSalary() > best){
+                best= e.returnPerformance() - e.returnSalary();
+                dummy= e;
+            }
+        }
+            return dummy;
+            
+    }
+
 
     public String toString() {
         System.out.println("Candidates: ");
