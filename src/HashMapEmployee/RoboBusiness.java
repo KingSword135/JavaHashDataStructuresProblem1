@@ -11,18 +11,8 @@ public class RoboBusiness {
 
     }
 
-    public boolean addEmployeeList(Employee s) {
-        int key = s.returnID();
-        if (Candidates.containsKey(key) && !Employees.containsKey(key)) {
-            Employees.put(key,s);
-            Candidates.remove(key);
-            return true;
-        }
-        return false;
-    }
-
     public boolean addCandidatesList(Employee s) {
-        // We want the 
+        // We want the candidates to be half that of the Employees
         if (Candidates.size() <= Employees.size() / 2) {
             int key = s.returnID();
             if (!Candidates.containsKey(key)) {
@@ -135,12 +125,13 @@ public class RoboBusiness {
     }
 
     public void printRoboBusiness() {
-        System.out.println("RRR ");
-        System.out.println("R R  ");
-        System.out.println("RRR  ");
-        System.out.println("R00R0");
-        System.out.println("R000R");
-
+        System.out.println("==========================================================================");
+        System.out.println("RRR   OOOOO BBB   OOOOO BBB   U   U  SSSS IIIII N   N EEEEE  SSSS  SSSS  !");
+        System.out.println("R R   O   O B  B  O   O B  B  U   U S       I   NN  N E     S     S      !");
+        System.out.println("RRR   O   O BBBBB O   O BBBBB U   U SSSSS   I   N N N EEEEE SSSSS SSSSS  !");
+        System.out.println("R  R  O   O B  B  O   O B  B  U   U     S   I   N  NN E         S     S   ");
+        System.out.println("R   R OOOOO BBB   OOOOO BBB   UUUUU SSSS  IIIII N   N EEEEE SSSS  SSSS   !");
+        System.out.println("==========================================================================");
     }
 
     public void initDatabase(int x){
@@ -201,17 +192,20 @@ public class RoboBusiness {
             
     }
 
-
     public String toString() {
+
         System.out.println("Candidates: ");
+
         for (Employee s : Candidates.values()) {
             System.out.println(s.toString());
-            System.out.println("=====================");
+            System.out.println("===========");
         }
+
+        System.out.println("Employees: ");
 
         for (Employee s : Employees.values()) {
             System.out.println(s.toString());
-            System.out.println("=====================");
+            System.out.println("===========");
         }
         return "";
     }

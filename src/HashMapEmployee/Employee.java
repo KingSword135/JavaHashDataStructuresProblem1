@@ -80,6 +80,10 @@ public class Employee extends Worker{
         String ID = "ID: " + returnID();
         String Salary = "Weekly Salary: $" + String.format("%.2f",(returnSalary() * returnHoursWorked() * returnDaysWorked())) + " per week";
         String Performance = "Performance Value: " + returnPerformance() + " - " + getActualPerformance();
-        return Title + "\n" + Name + "\n" + ID + "\n" + Salary + "\n" + Performance;
+        String dailyHoursWorked = "Daily Hours Worked: " + returnHoursWorked();
+        String weeklyDaysWorked = "Weekly Days Worked: " + returnDaysWorked();
+        String totalHoursWorked = "Total Hours Worked: " + returnDaysWorked() * returnHoursWorked();
+        return Title + "\n" + Name + "\n" + ID + "\n" + Salary + "\n" + Performance + "\n" + dailyHoursWorked
+        + "\n" + weeklyDaysWorked + "\n" + totalHoursWorked;
     }
 }
