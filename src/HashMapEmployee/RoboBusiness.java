@@ -134,6 +134,15 @@ public class RoboBusiness {
         System.out.println("==========================================================================");
     }
 
+    public Employee getEmployee(int key) {
+        return Employees.get(key);
+    }
+
+    public Employee getEmployee(Employee s) {
+       int key = s.returnID();
+       return Employees.get(key);
+    }
+
     public void initDatabase(int x){
         NameFiller nf= new NameFiller();
         for (int i=0; i < x; i++){
@@ -165,7 +174,7 @@ public class RoboBusiness {
     }
 
     public Employee bestCandidate(){
-        Double best=-1000000.0;
+        Double best = -1000000.0;
         Employee dummy= null;
 
         for (Employee e: Candidates.values() ){
@@ -179,13 +188,13 @@ public class RoboBusiness {
     }
 
     public Employee bestEmployee(){//used once demo is complete to show off employee to string 
-        Double best=-1000000.0;
-        Employee dummy= null;
+        Double best = -2147483648.0;
+        Employee dummy = null;
 
         for (Employee e: Employees.values() ){
             if(e.returnPerformance() - e.returnSalary() > best){
-                best= e.returnPerformance() - e.returnSalary();
-                dummy= e;
+                best = e.returnPerformance() - e.returnSalary();
+                dummy = e;
             }
         }
             return dummy;
