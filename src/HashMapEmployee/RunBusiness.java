@@ -1,4 +1,5 @@
 package HashMapEmployee;
+import java.util.Scanner;
 public class RunBusiness extends RoboBusiness {
     public static void main(String[] args) {
         RunBusiness rs= new RunBusiness();
@@ -6,8 +7,11 @@ public class RunBusiness extends RoboBusiness {
        
 }
     public void run(){// attempts to simulate database until all candidates are used
-
-        this.initDatabase(50);
+        Scanner sv = new Scanner(System.in);
+        System.out.println("How big do you want the database to be?");
+        int size = sv.nextInt();
+        sv.close();
+        this.initDatabase(size);
         Boolean running = true;
         int interveiws=0;
         System.out.println(Candidates.size());
