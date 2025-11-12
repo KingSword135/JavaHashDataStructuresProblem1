@@ -1,5 +1,7 @@
 package hashMapRealEstate;
 
+import java.util.ArrayList;
+
 public class RunRealEstate extends RealEstateManager {
     public static void main(String[] args) {
         RunRealEstate rs = new RunRealEstate();
@@ -24,12 +26,16 @@ public class RunRealEstate extends RealEstateManager {
             
             // Try to sell some properties based on probability
             int propertiesSold = 0;
+            ArrayList<String> soldAddresses = new ArrayList<>();
             for (Property property : activeListings.values()) {
                 if (Math.random() * 100 < property.returnSaleProbability()) {
-                    removeListing(property.returnAddress());
-                    propertiesSold++;
+                    soldAddresses.add(property.returnAddress());
                 }
             }
+            for (String address : soldAddresses) {
+                removeListing(address);
+                propertiesSold++;
+            }//edit to fix concurency issue 
             
             // Add new listings to replace sold ones
             AddressGenerator ag = new AddressGenerator();
@@ -71,5 +77,9 @@ public class RunRealEstate extends RealEstateManager {
             System.out.println("\nOVERALL BEST LISTING:");
             System.out.println(overallBest.toString());
         }
+
+        //test quad probing vs linear probing
+        AddressGenerator ag = new AddressGenerator();
+       System.out.println(addListing2(ag.createRandomProperty()));
     }
 }

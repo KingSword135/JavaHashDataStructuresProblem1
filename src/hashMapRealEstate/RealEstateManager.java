@@ -20,6 +20,17 @@ public class RealEstateManager {
         }
     }
 
+     public String addListing2(Property property) { //used to display quad probing
+        QuadProbing QP= new QuadProbing();
+        String key = property.returnAddress();
+        if (activeListings.containsKey(key)) {
+            activeListings.put(key, property);
+            return "Property was a duplicate and could not be tested for probing.";
+        } else {
+            return "Number of Quad Probes: " + QP.quadProbe((House) property, activeListings) + " Number of Linear Probes: " + QP.linearProbe((House) property, activeListings);
+        }
+    }
+
     public boolean removeListing(String address) {
         if (activeListings.containsKey(address)) {
             Property removed = activeListings.remove(address);
