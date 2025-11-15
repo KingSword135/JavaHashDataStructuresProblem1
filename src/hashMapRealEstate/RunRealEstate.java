@@ -95,9 +95,22 @@ public class RunRealEstate extends RealEstateManager {
             if (choice == 1) {
                 continue;
             }
-            else {
+            else if (choice == 2) {
                 s.close();
                 break;
+            }
+            else {
+                while ((choice < 1) || (choice > 2)) {
+                    System.out.println("You have not accepted a valid input. Try again. ");
+                    choice = s.nextInt();
+                }
+                if (choice == 1) {
+                    continue;
+                }
+                else if (choice == 2) {
+                    s.close();
+                    break;
+                }
             }
         }
     }
