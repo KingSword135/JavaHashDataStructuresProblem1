@@ -96,6 +96,7 @@ public class RunRealEstate extends RealEstateManager {
                 continue;
             }
             else {
+                s.close();
                 break;
             }
         }
