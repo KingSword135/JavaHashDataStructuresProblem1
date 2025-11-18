@@ -14,20 +14,24 @@ public class QuadProbing extends RealEstateManager {
 
 
         while(probes < tableSize){
-            spot= (initialSpot + probes * probes) % tableSize;
 
-            boolean doesCollide=false;
-            for(String keys: map.keySet()){
-                int hashs=  Math.abs(keys.hashCode()) % tableSize;
-                if(spot== hashs){
+            spot = (initialSpot + probes * probes) % tableSize;
+            boolean doesCollide = false;
+
+            for(String keys: map.keySet()) {
+
+                int hashs = Math.abs(keys.hashCode()) % tableSize;
+                if(spot == hashs){
                     doesCollide=true;
                     break;
                 }
+
             }
-            if(doesCollide == false){
+
+            if (doesCollide == false) {
                 return probes+1;
             }
-            probes++;
+            ++probes;
         }
         return probes;
             

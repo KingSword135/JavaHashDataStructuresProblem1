@@ -15,6 +15,9 @@ public class AddressGenerator extends RealEstateManager {
         add("Spruce Circle");
         add("Magnolia Boulevard");
         add("Sycamore Trail");
+        add("Alder Path");
+        add("Emerald Parkway");
+        add("Strickland Road");
     }};
     
     ArrayList<String> cities = new ArrayList<>() {{
@@ -28,6 +31,13 @@ public class AddressGenerator extends RealEstateManager {
         add("Clinton");
         add("Madison");
         add("Georgetown");
+        add("Nashville");
+        add("Miami");
+        add("Kyoto");
+        add("Denver");
+        add("Tehran");
+        add("Seattle");
+        add("Stockholm");
     }};
     
     ArrayList<String> states = new ArrayList<>() {{
@@ -41,6 +51,11 @@ public class AddressGenerator extends RealEstateManager {
         add("GA");
         add("NC");
         add("MI");
+        add("CO");
+        add("WY");
+        add("UT");
+        add("WA");
+        add("MN");
     }};
 
     public House createRandomProperty() {
