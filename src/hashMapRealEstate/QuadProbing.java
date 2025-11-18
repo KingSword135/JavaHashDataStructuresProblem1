@@ -41,12 +41,12 @@ public class QuadProbing extends RealEstateManager {
 
 
      public int linearProbe(House h, HashMap<String, Property> map){
+
         String key = h.returnAddress();
         int probes = 0;
         int tableSize = map.size() * 2;
         int initialSpot = Math.abs(key.hashCode()) % tableSize;
         int spot = initialSpot;
-
 
         while(probes < tableSize){
             spot = (initialSpot + probes) % tableSize;
