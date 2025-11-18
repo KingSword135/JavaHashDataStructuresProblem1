@@ -55,6 +55,7 @@ public class House extends Property {
 
     @Override
     public String toString() {
+        
         String status = getPropertyStatus();
         String address = "Address: " + returnAddress();
         String value = "Value: $" + String.format("%,.2f", returnValue());
