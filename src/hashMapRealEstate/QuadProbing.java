@@ -1,72 +1,69 @@
 package hashMapRealEstate;
 
 import java.util.HashMap;
-
+import java.util.Properties;
+// rewritten to extract hashtable data to show probes for collsion resolution
 public class QuadProbing extends RealEstateManager {
+     Property[] properties;
 
-//currently works but shows no diffrence will alter methods to use hashtable in future updates
-    public int quadProbe(House h, HashMap<String, Property> map){
 
-        String key = h.returnAddress();
-        int probes = 0;
-        int tableSize = map.size() *2;
-        int initialSpot = Math.abs(key.hashCode()) % tableSize;
-        int spot = initialSpot;
-
-        while(probes < tableSize){
-
-            //Uses the quadratic probing to get a spot
-            spot = (initialSpot + probes * probes) % tableSize;
-            boolean doesCollide = false;
-
-            for(String keys: map.keySet()) {
-
-                //Checks if the quadratic spot is equal to the hash
-                int hashs = Math.abs(keys.hashCode()) % tableSize;
-                if(spot == hashs){
-                    doesCollide = true;
-                    break;
-                }
-
-            }
-
-            if (doesCollide == false) {
-                return probes+1;
-            }
-            ++probes;
+    public Property[] fillTable(HashMap<String, Property> map){
+        properties= new Property[map.size()*2];
+        for(Property p: map.values()){
+        int probes= 0;
+        int initialSpot= Math.abs(p.hashCode()) % properties.length;
+        int spot= initialSpot;
+       
+        while(properties[spot]!=null && probes < properties.length ){
+            probes++;
+            spot= (initialSpot + probes) % properties.length;
         }
-        return probes;
-            
+        properties[spot]=p;
     }
+     return properties;
+    }
+   
 
 
-     public int linearProbe(House h, HashMap<String, Property> map){
+    public int quadProbe(House h, HashMap<String, Property> map){
+        String key= h.returnAddress();
+        int probes= 0;
+        int tableSize= properties.length;
+        int initialSpot= Math.abs(key.hashCode()) % tableSize;
+        int spot= initialSpot;
 
-        String key = h.returnAddress();
-        int probes = 0;
-        int tableSize = map.size() * 2;
-        int initialSpot = Math.abs(key.hashCode()) % tableSize;
-        int spot = initialSpot;
 
-        while(probes < tableSize){
-            spot = (initialSpot + probes) % tableSize;
 
-            boolean doesCollide=false;
-            for(String keys : map.keySet()){
-                int hashs =  Math.abs(keys.hashCode()) % tableSize;
-                if(spot == hashs){
-                    doesCollide = true;
-                    break;
-                }
-            }
-            if(doesCollide == false){
-                return probes+1;
-            }
+
+        while(properties[spot]!=null && probes < tableSize){
+            spot= (initialSpot + probes * probes) % tableSize;
             probes++;
         }
         return probes;
-            
+           
     }
+
+
+
+
+     public int linearProbe(House h, HashMap<String, Property> map){
+        String key= h.returnAddress();
+        int probes= 0;
+        int tableSize= properties.length;
+        int initialSpot= Math.abs(key.hashCode()) % tableSize;
+        int spot= initialSpot;
+
+
+
+
+        while(properties[spot]!=null && probes < tableSize){
+            spot= (initialSpot + probes) % tableSize;
+            probes++;
+        }
+        return probes;
+    }
+
+
 
 
 }
