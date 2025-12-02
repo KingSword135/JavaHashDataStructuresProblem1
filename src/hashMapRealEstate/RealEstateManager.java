@@ -20,16 +20,27 @@ public class RealEstateManager {
         }
     }
 
-     public String addListing2(Property property) { //used to display quad probing
+      public String addListing2(Property property) { //used to display quad probing
         QuadProbing QP= new QuadProbing();
         String key = property.returnAddress();
         if (activeListings.containsKey(key)) {
             activeListings.put(key, property);
             return "Property was a duplicate and could not be tested for probing.";
         } else {
-            return "Number of Quad Probes: " + QP.quadProbe((House) property, activeListings) + " Number of Linear Probes: " + QP.linearProbe((House) property, activeListings);
+            QP.fillTable(activeListings);
+            long startLin= System.nanoTime();
+            int probesLin= QP.quadProbe((House) property, activeListings);
+            long endLin= System.nanoTime();
+            long nanoLin= endLin - startLin;
+            long startQuad= System.nanoTime();
+            int probesQuad= QP.linearProbe((House) property, activeListings);
+            long endQuad= System.nanoTime();
+            long nanoQuad= endQuad - startQuad;
+            return "(If Zero No Collisions Occured) Number of Quad Probes: " + probesQuad + " Number of Linear Probes: " + probesLin +
+                   "\nTime for Quad Probing (nanoseconds): " + nanoQuad + " Time for Linear Probing (nanoseconds): " + nanoLin;
         }
     }
+
 
     public boolean removeListing(String address) {
         if (activeListings.containsKey(address)) {
