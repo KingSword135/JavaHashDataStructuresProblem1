@@ -90,12 +90,13 @@ public class RunRealEstate extends RealEstateManager {
                 System.out.println(overallBest.toString());
             }
 
-            //test quad probing vs linear probing
+           //test quad probing vs linear probing
             AddressGenerator ag = new AddressGenerator();
             System.out.println(addListing2(ag.createRandomProperty()));
 
+
             System.out.println("This listing market is done. Do you want to continue or not?");
-            System.out.println("1. Continue\n2. End");
+            System.out.println("1. Continue\n2. End\n3. Test Probing & Break\n");
             int choice = s.nextInt();
             if (choice == 1) {
                 continue;
@@ -104,8 +105,13 @@ public class RunRealEstate extends RealEstateManager {
                 s.close();
                 break;
             }
+            else if (choice == 3){
+                 //test quad probing vs linear probing again
+            System.out.println(addListing2(ag.createRandomProperty()));
+            break;
+            }
             else {
-                while ((choice < 1) || (choice > 2)) {
+                while ((choice < 1) || (choice > 2) || (choice == 3)) {
                     System.out.println("You have not accepted a valid input. Try again. ");
                     choice = s.nextInt();
                 }

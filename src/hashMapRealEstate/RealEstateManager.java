@@ -28,7 +28,16 @@ public class RealEstateManager {
             return "Property was a duplicate and could not be tested for probing.";
         } else {
             QP.fillTable(activeListings);
-            return "(If Zero No Collisions Occured) Number of Quad Probes: " + QP.quadProbe((House) property, activeListings) + " Number of Linear Probes: " + QP.linearProbe((House) property, activeListings);
+            long startLin= System.nanoTime();
+            int probesLin= QP.quadProbe((House) property, activeListings);
+            long endLin= System.nanoTime();
+            long nanoLin= endLin - startLin;
+            long startQuad= System.nanoTime();
+            int probesQuad= QP.linearProbe((House) property, activeListings);
+            long endQuad= System.nanoTime();
+            long nanoQuad= endQuad - startQuad;
+            return "(If Zero No Collisions Occured) Number of Quad Probes: " + probesQuad + " Number of Linear Probes: " + probesLin +
+                   "\nTime for Quad Probing (nanoseconds): " + nanoQuad + " Time for Linear Probing (nanoseconds): " + nanoLin;
         }
     }
 
